@@ -95,3 +95,35 @@ To learn more about React Native, take a look at the following resources:
 - [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
 - [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
 - [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+
+# useQuery
+
+import { QUERY_KEYS } from "@/constants/QueryKeys";
+import { getAllProducts } from "@/services/products";
+import { useQuery, UseQueryOptions } from "@tanstack/react-query";
+
+type Options = Omit<UseQueryOptions<Product[]>, "queryKey" | "queryFn">;
+
+const useGetAllProductsQuery = (options?: Options) => {
+return useQuery({
+queryKey: [QUERY_KEYS.products],
+queryFn: getAllProducts,
+...options,
+});
+};
+
+export default useGetAllProductsQuery;
+
+# useMutation
+
+import { signIn } from "@/services/users";
+import { useMutation } from "@tanstack/react-query";
+
+const useSignInMutation = () =>
+useMutation({
+mutationFn: signIn,
+onError: () => {},
+onSuccess: () => {},
+});
+
+export default useSignInMutation;
