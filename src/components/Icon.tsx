@@ -1,4 +1,3 @@
-// import { View } from 'react-native';
 import React from 'react';
 import { AntDesign } from '@react-native-vector-icons/ant-design';
 import { IconName } from '../models/icon';
