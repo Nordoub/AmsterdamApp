@@ -6,9 +6,13 @@ type Props = {
   style?: StyleProp<ViewStyle>;
 };
 
-const Screen = ({ children, ...viewProps }: PropsWithChildren<Props>) => {
+const Screen = ({
+  children,
+  style,
+  ...viewProps
+}: PropsWithChildren<Props>) => {
   return (
-    <View style={styles.container} {...viewProps}>
+    <View style={[styles.container, style]} {...viewProps}>
       {children}
     </View>
   );
@@ -18,6 +22,8 @@ export default Screen;
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     padding: THEME.SPACING.xl,
+    backgroundColor: THEME.COLORS.background,
   },
 });

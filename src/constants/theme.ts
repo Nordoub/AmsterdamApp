@@ -28,7 +28,8 @@ const THEME = {
   },
   COLORS: {
     primary: '#179EDA',
-    secondary: '#02c5dbff',
+    secondary: '#b7b6b7',
+    background: '#fafafa',
     success: '#28a745',
     danger: '#dc3545',
     warning: '#ffc107',
