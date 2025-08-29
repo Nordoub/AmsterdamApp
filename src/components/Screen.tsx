@@ -1,14 +1,23 @@
-import { StyleSheet, View } from 'react-native';
+import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
 import React, { PropsWithChildren } from 'react';
+import THEME from '../constants/theme';
 
-const Screen = ({ children }: PropsWithChildren) => {
-  return <View style={styles.container}>{children}</View>;
+type Props = {
+  style?: StyleProp<ViewStyle>;
+};
+
+const Screen = ({ children, ...viewProps }: PropsWithChildren<Props>) => {
+  return (
+    <View style={styles.container} {...viewProps}>
+      {children}
+    </View>
+  );
 };
 
 export default Screen;
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
+    padding: THEME.SPACING.xl,
   },
 });
